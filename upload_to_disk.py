@@ -39,15 +39,18 @@ def remove_file(l1, l2):
 
 def upload_to_yadisk(l1, l2):
     social = yadisk.Client(token=password.TOKEN)
-    print('up')
-    for file2 in l2:
-        for file1 in l1:
-            if file2 == file1:
-                continue
-            else:
-                social.upload(password.PATH + f'/{file2}', f'/main/{file2}')
-                logger.info(f'upload file {file2}')
 
+    for file2 in l2:
+        if len(l1) != 0:
+            for file1 in l1:
+                if file2 == file1:
+                    continue
+                else:
+                    social.upload(password.PATH + f'/{file2}', f'/main/{file2}')
+                    logger.info(f'upload file {file2}')
+        else:
+            social.upload(password.PATH + f'/{file2}', f'/main/{file2}')
+            logger.info(f'upload file {file2}')
 
 def update(l2):
     social = yadisk.Client(token=password.TOKEN)
