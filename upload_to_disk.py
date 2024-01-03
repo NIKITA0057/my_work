@@ -26,33 +26,33 @@ def get_file_yadisk():
 
 def remove_file(l1, l2):
     client = yadisk.Client(token=password.TOKEN)
-    print('rem')
-    for i in l1:
-        print(i)
-        for file in l2:
-            if i == file:
+
+    for file1 in l1:
+
+        for file2 in l2:
+            if file1 == file2:
                 continue
             else:
-                logger.info(f'deleated file {i}')
-                client.remove(f'/main/{i}')
+                logger.info(f'deleated file {file1}')
+                client.remove(f'/main/{file1}')
 
 
 def upload_to_yadisk(l1, l2):
     social = yadisk.Client(token=password.TOKEN)
     print('up')
-    for i in l2:
-        for a in l1:
-            if i == a:
+    for file2 in l2:
+        for file1 in l1:
+            if file2 == file1:
                 continue
             else:
-                social.upload(password.PATH + f'/{i}', f'/main/{i}')
-                logger.info(f'upload file {i}')
+                social.upload(password.PATH + f'/{file2}', f'/main/{file2}')
+                logger.info(f'upload file {file2}')
 
 
 def update(l2):
     social = yadisk.Client(token=password.TOKEN)
-    for i in l2:
-        social.upload(password.PATH + f'/{i}', f'/main/{i}',overwrite=True)
+    for update_file in l2:
+        social.upload(password.PATH + f'/{update_file}', f'/main/{update_file}',overwrite=True)
     logger.info(f'update file')
 
 
