@@ -1,0 +1,5 @@
+black==23.12.1
+getenv==0.2.0
+loguru==0.7.2
+python-dotenv==1.0.0
+yadisk==2.0.0
